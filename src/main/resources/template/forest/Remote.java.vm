@@ -1,0 +1,35 @@
+package ${package}.remote;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ${package}.fallback.${className}Back;
+
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ *
+ */
+@FeignClient(name = "${routesServiceId}", fallback = ${className}Back.class)
+public interface ${className}Remote{
+	
+	@RequestMapping("/${classname}/list")
+    Object list(@RequestParam("page") Long page, @RequestParam("pageSize") Long pageSize);
+
+    @RequestMapping("/${classname}/getById")
+    Object getById(@RequestParam("id") Long id);
+
+    @RequestMapping("/${classname}/save")
+    int save(Map<String, ?> map);
+
+    @RequestMapping("/${classname}/update")
+    int update(Map<String, ?> map);
+    
+    @RequestMapping("/${classname}/delete")
+    int delete(@RequestParam("id") Long id);
+	
+}

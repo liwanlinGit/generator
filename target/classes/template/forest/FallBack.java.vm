@@ -1,0 +1,42 @@
+package ${package}.fallback;
+
+import ${package}.remote.${className}Remote;
+import org.springframework.stereotype.Component;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ *
+ */
+@Component
+public class ${className}Back implements ${className}Remote  {
+
+   @Override
+    public Object list(Long page, Long pageSize) {
+        return null;
+    }
+
+    @Override
+    public Object getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public int save(Map<String, ?> map) {
+        return 0;
+    }
+
+    @Override
+    public int update(Map<String, ?> map) {
+        return 0;
+    }
+
+    @Override
+    public int delete(Long id) {
+        return 0;
+    }
+
+	
+}
