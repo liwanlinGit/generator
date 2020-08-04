@@ -207,7 +207,7 @@ public class GenUtils {
             return packagePath + "mapper" + File.separator + className + "Mapper.java";
         }
         if (template.contains("Dao.xml.vm")) {
-            return packagePath + "mapper" + File.separator +"xml"+File.separator+className + "Mapper.java";
+            return packagePath + "mapper" + File.separator +"xml"+File.separator+className + "Mapper.xml";
         }
         if (template.contains("Server.java.vm")) {
             return packagePath + "server" + File.separator + className + "Action.java";

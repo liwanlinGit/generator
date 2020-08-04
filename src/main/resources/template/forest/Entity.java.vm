@@ -3,12 +3,11 @@ package ${package}.entity;
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * ${comments}
@@ -16,33 +15,32 @@ import io.swagger.annotations.ApiModelProperty;
  * @author ${author}
  * @date ${datetime}
  */
-@Table(name = "${tableName}")
+@TableName(value = "${tableName}")
 public class ${className} implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	#foreach ($column in $columns)
+	
     /**
 	* $column.comments
 	*/
-	
-	#if($column.columnName == $pk.columnName)
-    @Id
-	#end
+	@TableField(value = "$column.columnName")
     private $column.attrType $column.attrname;
 	#end
+	
     #foreach ($column in $columns)
     
     /**
         * $column.comments
         */
-    public $column.attrType set${column.attrName}(${column.attrType} ${column.attrname}){
+    public void set${column.attrName}(${column.attrType} ${column.attrname}){
       this.${column.attrname}=${column.attrname};
     }
     /**
         * $column.comments
         */
-    public void get${column.attrName}(){
+    public $column.attrType get${column.attrName}(){
        return ${column.attrname};
     }
     #end
